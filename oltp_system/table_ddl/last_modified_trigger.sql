@@ -1,0 +1,9 @@
+CREATE OR REPLACE FUNCTION set_last_modified()
+RETURNS TRIGGER
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    NEW.last_modified = CURRENT_TIMESTAMP;
+    RETURN NEW;
+END;
+$$;
